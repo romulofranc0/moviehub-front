@@ -1,0 +1,32 @@
+<div class="flex align-items-center justify-content-center min-h-screen bg-animated-gradient">
+  <div class="w-11 md:w-30rem px-4">
+    <p-card class="glass-card animate-fadein">
+      <div class="flex justify-content-center mb-6">
+        <img class="logo align-self-center" src="Moviehub_LOGO.svg" style="height: 50px;">
+      </div>
+      <form class="p-fluid" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="field mb-5">
+          <span class="p-float-label">
+            <label for="username">Username</label>
+            <input pInputText id="username" formControlName="username" class="mt-2 w-full">
+          </span>
+        </div>
+        <div class="field mb-5">
+          <span class="p-float-label">
+            <label for="password">Password</label>
+            <input pInputText id="password" type="password" formControlName="password" class="w-full mt-2">
+          </span>
+        </div>
+        <div class="flex justify-content-between align-items-center mt-6">
+          <a routerLink="/login" class="text-sm text-primary hover:underline">Already have an account?</a>
+          <p-button
+            [disabled]="!myForm.valid"
+            type="submit"
+            [style]="{'min-width': '120px'}">
+            Register
+          </p-button>
+        </div>
+      </form>
+    </p-card>
+  </div>
+</div>
