@@ -1,21 +1,17 @@
-<nav class="flex justify-content-between mt-3">
-  <div>
-    <img class="logo" routerLink="/home" src="Moviehub_LOGO.svg" alt="logo">
+<nav class="flex justify-content-between align-items-center px-4 py-3 navbar">
+
+  <a routerLink="/home" class="flex align-items-center">
+    <img class="logo" src="Moviehub_LOGO.svg" alt="MovieHub Logo">
+  </a>
+
+  <div class="flex gap-3 align-items-center">
+    <p-button routerLink="/feed" label="Feed" variant="text" rounded="true" class="nav-button"></p-button>
+    <p-button routerLink="/reviews" label="My Reviews" variant="text" rounded="true" class="nav-button"></p-button>
+    <p-button routerLink="/lists" label="My Lists" variant="text" rounded="true" class="nav-button"></p-button>
   </div>
-  <div class="flex">
-    <div>
-      <p-button routerLink="/feed" rounded="true" variant="text">Feed</p-button>
-    </div>
-    <div>
-      <p-button routerLink="/reviews" rounded="true" variant="text" >My Reviews</p-button>
-    </div>
-    <div>
-      <p-button routerLink="/lists" rounded="true" variant="text">My Lists</p-button>
-    </div>
-  </div>
-  <div class="mr-3">
-    <p-button routerLink="/login" class="mr-2" variant="outlined" rounded="true">Login</p-button>
-    <p-button routerLink="/register" rounded="true">Register</p-button>
+
+  <div class="flex gap-2 align-items-center">
+    <p-button routerLink="/login" label="Login" variant="outlined" rounded="true" class="auth-button"></p-button>
+    <p-button routerLink="/register" label="Register" rounded="true" class="auth-button register-button"></p-button>
   </div>
 </nav>
-
