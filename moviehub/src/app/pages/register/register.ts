@@ -48,10 +48,11 @@ export class Register {
       }
      this._authService.registerUser(this.userRequest).subscribe({
         next: result => {
-          console.log(result);
+          this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Success' });
+
         },
         error: err => {
-          console.log(err);
+          this._messageService.add({ severity: 'error', summary: 'Error', detail: err.error?.message });
         }
       })
 

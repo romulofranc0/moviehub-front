@@ -1,0 +1,24 @@
+
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 584px;
+  border: 1px solid #00ffff;
+  border-radius: 2rem;
+  padding-right: 0.3rem;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 2rem;
+}
+
