@@ -10,15 +10,19 @@
         <input
           type="text"
           pInputText
+          [(ngModel)]="title"
           placeholder="Search Movie..."
           class="search-input"
         />
+        @if (title){
         <p-button
           icon="pi pi-search"
           class="search-btn"
           rounded="true"
           text="true"
+          (click)="searchMovie()"
         ></p-button>
+        }
       </div>
     </div>
 
