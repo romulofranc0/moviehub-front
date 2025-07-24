@@ -3,7 +3,7 @@ import {Button} from "primeng/button";
 import {Card} from "primeng/card";
 import {InputText} from "primeng/inputtext";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {RouterLink} from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import {Toast} from "primeng/toast";
 import {CreateUserRequest} from '../../models/create-user-request';
 import {MessageService} from 'primeng/api';
@@ -29,7 +29,8 @@ export class Login {
 
   constructor(private formBuilder: FormBuilder,
               private _messageService:MessageService,
-              private _authService:AuthService) {
+              private _authService:AuthService,
+              private router:Router) {
     this.loginForm = formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -44,11 +45,11 @@ export class Login {
       }
       this._authService.loginUser(this.userRequest).subscribe({
         next: result => {
-          this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Register Success' });
-
+          this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Login successfully' });
+          this.router.navigate(['/home']);
         },
         error: err => {
-          console.log(err);
+          this._messageService.add({ severity: 'error', summary: 'Error', detail: err.error?.message });
         }
       })
 
