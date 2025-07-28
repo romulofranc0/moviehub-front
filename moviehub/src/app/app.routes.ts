@@ -3,6 +3,7 @@ import {Home} from './pages/home/home';
 import {Login} from './pages/login/login';
 import {Register} from './pages/register/register';
 import {MovieSearch} from './pages/movie-search/movie-search';
+import {MovieDetails} from './pages/movie-details/movie-details';
 
 export const routes: Routes = [
   {
@@ -24,5 +25,9 @@ export const routes: Routes = [
   {
     path:"movie-search/:title",
     component:MovieSearch
+  },
+  {
+    path:"movie-details/:imdbId",
+    component:MovieDetails
   }
 ];
