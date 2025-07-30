@@ -10,8 +10,16 @@
     <p-button routerLink="/lists" label="My Lists" variant="text" rounded="true" class="nav-button"></p-button>
   </div>
 
-  <div class="flex gap-2 align-items-center">
-    <p-button routerLink="/login" label="Login" variant="outlined" rounded="true" class="auth-button"></p-button>
-    <p-button routerLink="/register" label="Register" rounded="true" class="auth-button register-button"></p-button>
-  </div>
+  @if (!isLoggedIn){
+
+    <div class="flex gap-2 align-items-center">
+      <p-button routerLink="/login" label="Login" variant="outlined" rounded="true" class="auth-button"></p-button>
+      <p-button routerLink="/register" label="Register" rounded="true" class="auth-button register-button"></p-button>
+    </div>
+  } @else {
+    <div class="flex gap-2 align-items-center">
+      <p-button label="Logout" variant="outlined" rounded="true" class="auth-button" (click)="logout()"></p-button>
+      <p-button icon="pi pi-user" text="true" rounded="true"/>
+    </div>
+  }
 </nav>
