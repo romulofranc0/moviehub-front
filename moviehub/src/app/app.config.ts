@@ -7,6 +7,7 @@ import {routes} from './app.routes';
 import {provideRouter} from '@angular/router';
 import {provideHttpClient, withInterceptors} from '@angular/common/http';
 import {authInterceptor} from './security/interceptors/auth-interceptor';
+import {loadingInterceptor} from './security/interceptors/loading-interceptor';
 
 const MyPreset = definePreset(Aura, {
   primitive: {
@@ -669,7 +670,7 @@ const MyPreset = definePreset(Aura, {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(
-      withInterceptors([authInterceptor])
+      withInterceptors([authInterceptor, loadingInterceptor])
     ),
     provideRouter(routes),
     provideAnimationsAsync(),

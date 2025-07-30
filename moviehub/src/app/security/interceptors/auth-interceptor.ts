@@ -16,15 +16,14 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
   let authReq = req;
 
   if (token) {
-    const authReq = req.clone({
+    authReq = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token}`
-
-  }
+      }
     });
   }
 
-    return next(authReq).pipe(
+  return next(authReq).pipe(
     catchError(error => {
       if (error.status === 401 || error.status === 403) {
         authService.logout();
