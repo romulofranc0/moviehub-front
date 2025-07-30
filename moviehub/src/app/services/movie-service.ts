@@ -14,7 +14,14 @@ export class MovieService {
     const params = new HttpParams()
       .set('title', movieTitle);
 
-    return this._http.get<any>(`${this._url}"movie/search`, { params })
+    return this._http.get<any>(`${this._url}movie/search`, { params })
+  }
+
+  getMovieDetails(imdbId:string): Observable<any> {
+    const params = new HttpParams()
+      .set('imdbId', imdbId)
+
+    return this._http.get<any>(`${this._url}/movie`, { params })
   }
 
 }
