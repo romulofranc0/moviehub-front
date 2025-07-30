@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, Input, input} from '@angular/core';
 import {Card} from 'primeng/card';
 import {MovieSearchResponse} from '../../models/movie-search-response';
 
@@ -11,14 +11,6 @@ import {MovieSearchResponse} from '../../models/movie-search-response';
   styleUrl: './movie-search-card.scss'
 })
 export class MovieSearchCard {
-  //movie = input<MovieSearchResponse>();
-
-  movie: MovieSearchResponse = {
-    title: "Drive",
-    year: "2011",
-    type: "movie",
-    imdbID: "tt0780504",
-    poster: "https://m.media-amazon.com/images/M/MV5BYTFmNTFlOTAtNzEyNi00MWU2LTg3MGEtYjA2NWY3MDliNjlkXkEyXkFqcGc@._V1_SX300.jpg"
-  };
+  @Input() movie!: MovieSearchResponse;
 
 }
