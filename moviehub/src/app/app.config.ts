@@ -5,7 +5,9 @@ import {definePreset} from '@primeng/themes';
 import Aura from '@primeng/themes/aura';
 import {routes} from './app.routes';
 import {provideRouter} from '@angular/router';
-import {provideHttpClient} from '@angular/common/http';
+import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import {authInterceptor} from './security/interceptors/auth-interceptor';
+import {loadingInterceptor} from './security/interceptors/loading-interceptor';
 
 const MyPreset = definePreset(Aura, {
   primitive: {
@@ -667,7 +669,9 @@ const MyPreset = definePreset(Aura, {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideHttpClient(),
+    provideHttpClient(
+      withInterceptors([authInterceptor, loadingInterceptor])
+    ),
     provideRouter(routes),
     provideAnimationsAsync(),
     providePrimeNG({

@@ -1,0 +1,10 @@
+<div class="movies-grid flex grid m-6 max-w-screen">
+
+  @for (movie of movieSearchResults; track movie.imdbID) {
+    <div class="col-2">
+
+      <app-movie-search-card [movie]="movie"></app-movie-search-card>
+    </div>
+
+  }
+</div>
