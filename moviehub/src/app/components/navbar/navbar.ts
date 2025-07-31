@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {ButtonModule} from 'primeng/button';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {AuthService} from '../../services/auth-service';
 
 @Component({
@@ -13,6 +13,7 @@ import {AuthService} from '../../services/auth-service';
   styleUrl: './navbar.scss'
 })
 export class Navbar {
+  private _router = inject(Router);
   isLoggedIn = false;
 
   constructor(private authService: AuthService) {
@@ -23,6 +24,7 @@ export class Navbar {
 
   logout() {
     this.authService.logout();
+    this._router.navigate(["/home"]);
   }
 
 }

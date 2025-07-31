@@ -1,0 +1,16 @@
+
+.responsive-container {
+  width: 90vw;
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    width: 75vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-container {
+    width: 60vw;
+  }
+}
