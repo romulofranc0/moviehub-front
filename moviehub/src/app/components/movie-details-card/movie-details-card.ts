@@ -1,9 +1,11 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {Card} from 'primeng/card';
 import {Button} from 'primeng/button';
 import {Rating} from 'primeng/rating';
 import {FormsModule} from '@angular/forms';
 import {MovieDetailsResponse} from '../../models/movie-details-response';
+import {MovieService} from "../../services/movie-service";
+import {MovieDetails} from "../../pages/movie-details/movie-details";
 
 @Component({
   selector: 'app-movie-details-card',
@@ -18,7 +20,5 @@ import {MovieDetailsResponse} from '../../models/movie-details-response';
 })
 export class MovieDetailsCard {
   @Input() movie!: MovieDetailsResponse;
-  rating: any;
-
 
 }

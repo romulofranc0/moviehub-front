@@ -1,6 +1,6 @@
 <div class="flex grid">
   <div class="flex sm:col-1 xl:col-4 md:col-2">
-    <p-card class="flex glass-card border-round-3xl">
+    <p-card (click)="movieSelected($event)" class="flex glass-card border-round-3xl">
       <img [src]=movie.poster alt="poster" class="poster border-round-3xl">
       <div class="flex justify-content-center">
         <h2>{{ movie.title }}({{movie.year}})</h2>

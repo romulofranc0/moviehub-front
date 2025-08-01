@@ -3,6 +3,7 @@ import {MovieDetailsCard} from '../../components/movie-details-card/movie-detail
 import {ActivatedRoute} from '@angular/router';
 import {MovieService} from '../../services/movie-service';
 import {MovieDetailsResponse} from '../../models/movie-details-response';
+import {switchMap} from 'rxjs';
 
 @Component({
   selector: 'app-movie-details',
@@ -16,15 +17,21 @@ export class MovieDetails implements OnInit {
   private _movieService = inject(MovieService);
   private _route = inject(ActivatedRoute);
   movie!: MovieDetailsResponse;
+
   imdbId!: string;
 
   ngOnInit() {
-    this.imdbId = this._route.snapshot.paramMap.get('imdbId')!;
-    this._movieService.getMovieDetails(this.imdbId).subscribe({
-      next: (result) => {
+    this._route.params.pipe(
+      switchMap(params => {
+        const imdbId = params['imdbId']
+
+        return this._movieService.getMovieDetails(imdbId);
+      })
+    ).subscribe({
+      next: result => {
         this.movie = result;
       }
-    })
+    });
   }
 
 

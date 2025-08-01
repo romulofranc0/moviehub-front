@@ -13,4 +13,7 @@ import {MovieSearchResponse} from '../../models/movie-search-response';
 export class MovieSearchCard {
   @Input() movie!: MovieSearchResponse;
 
+  movieSelected($event: MouseEvent) {
+
+  }
 }
