@@ -1,1 +1,6 @@
-<app-movie-details-card [movie] = movie></app-movie-details-card>
+@if (!reviewEnabled){
+    <app-movie-details-card (reviewEnabled) = "isReviewEnabled($event)"  [movie] = movie></app-movie-details-card>
+} @else {
+    <app-movie-review (reviewEnabled) = "isReviewEnabled($event)" [movie] = movie></app-movie-review>
+}
+

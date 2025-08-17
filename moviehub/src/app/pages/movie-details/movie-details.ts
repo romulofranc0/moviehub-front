@@ -4,12 +4,14 @@ import {ActivatedRoute} from '@angular/router';
 import {MovieService} from '../../services/movie-service';
 import {MovieDetailsResponse} from '../../models/movie-details-response';
 import {switchMap} from 'rxjs';
+import {MovieReview} from "../../components/movie-review/movie-review";
 
 @Component({
   selector: 'app-movie-details',
-  imports: [
-    MovieDetailsCard
-  ],
+    imports: [
+        MovieDetailsCard,
+        MovieReview
+    ],
   templateUrl: './movie-details.html',
   styleUrl: './movie-details.scss'
 })
@@ -19,6 +21,7 @@ export class MovieDetails implements OnInit {
   movie!: MovieDetailsResponse;
 
   imdbId!: string;
+  reviewEnabled: boolean = false;
 
   ngOnInit() {
     this._route.params.pipe(
@@ -35,4 +38,7 @@ export class MovieDetails implements OnInit {
   }
 
 
+  isReviewEnabled($event: boolean) {
+    this.reviewEnabled = $event;
+  }
 }
