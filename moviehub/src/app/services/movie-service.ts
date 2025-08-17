@@ -11,7 +11,6 @@ import {Router} from "@angular/router";
 })
 export class MovieService {
   private _http = inject(HttpClient);
-  private _router = inject(Router);
   private _url = environment.apiUrl;
 
   public readonly moviesResponse = signal<MovieSearchResponse[]>([])
