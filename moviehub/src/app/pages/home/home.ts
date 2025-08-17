@@ -1,10 +1,8 @@
-import {Component, inject, signal} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {InputText} from 'primeng/inputtext';
 import {Button} from 'primeng/button';
-import {MovieService} from '../../services/movie-service';
 import {Router} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {MessageService} from 'primeng/api';
 
 @Component({
   selector: 'app-home',

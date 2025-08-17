@@ -4,8 +4,10 @@
       <div>
         <img [src]=movie.poster alt="poster" class="details-poster border-round-3xl">
       </div>
-      <div class="flex flex-column ml-4 justify-between" style="height: 100%;">
-        <div>
+
+      <div class="flex flex-column ml-4">
+
+        <div class="flex-grow-1">
           <h2>{{ movie.title }} ({{ movie.year }})</h2>
           <div class="flex">
             <img class="imdb-logo align-self-center" src="IMDB_Logo_2016.svg" alt="imdb">
@@ -14,14 +16,13 @@
           <p class="plot">{{ movie.plot }}</p>
         </div>
 
-        <div class="buttons flex justify-content-between mt-4">
-          <p-rating [(ngModel)]="rating" [stars]="10"/>
-          <div>
-            <p-button class="mr-3" icon="pi pi-pencil" label="Review"></p-button>
+        <div class="buttons flex justify-content-between">
+          <div class="justify-content-between">
+            <p-button class="mr-3" (click)="enableReviewMode()" icon="pi pi-pencil" label="Review"></p-button>
             <p-button icon="pi pi-plus" outlined="true" label="Add to List"></p-button>
-
           </div>
         </div>
+
       </div>
     </div>
   </p-card>
