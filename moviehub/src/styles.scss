@@ -5,7 +5,8 @@ body, html {
   padding: 0;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to bottom, #1F2937, #000000);
+  background-image: url('https://www.transparenttextures.com/patterns/dark-denim-3.png');
+  background-color: #1F2937;
   font-family: 'inter', sans-serif;
   color: white;
   overflow-x: hidden;
@@ -20,22 +21,22 @@ body, html {
 
 
 .glass-card {
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(31, 41, 55, 0.5);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.76);
-  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5);
 }
 
 .p-card-body{
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: transparent;
   border-radius: 20px;
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(31, 41, 55, 0.7);
   box-shadow: 0 20px 56px rgba(0, 0, 0, 0.5);
 }
 

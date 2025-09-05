@@ -5,6 +5,7 @@ import {Rating} from 'primeng/rating';
 import {FormsModule} from '@angular/forms';
 import {MovieDetailsResponse} from '../../models/movie-details-response';
 import {ActivatedRoute, Router} from '@angular/router';
+import {ReviewService} from "../../services/review-service";
 
 
 @Component({
@@ -18,14 +19,27 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrl: './movie-details-card.scss'
 })
 export class MovieDetailsCard {
-  private _router= inject(Router);
-  private _activeRoute = inject(ActivatedRoute);
+  private _reviewService= inject(ReviewService);
+  private _route = inject(ActivatedRoute);
+  private _router = inject(Router);
 
   @Input() movie!: MovieDetailsResponse;
-  @Output() reviewEnabled = new EventEmitter<boolean>();
+  @Output() createReviewEnabled = new EventEmitter<boolean>();
+  @Output() reviewExists = new EventEmitter<boolean>();
+  @Output() showMovieDetails = new EventEmitter<boolean>();
 
-  enableReviewMode() {
-    this.reviewEnabled.emit(true);
+  verifyExistingReview() {
+    this._reviewService.verifyReview(this._route.snapshot.params['imdbId']).subscribe({
+      next: (result) => {
+
+          this.reviewExists.emit(result);
+          this.createReviewEnabled.emit(!result);
+          this.showMovieDetails.emit(false);
+
+      },error:() =>{
+
+      }
+    })
   }
 
 }

@@ -16,4 +16,12 @@ export class ReviewService {
     return this._http.post('http://localhost:8080/api/review', reviewRequest)
   }
 
+  getReviewByImdbId(imdbId:string):Observable<any> {
+    return this._http.get(`http://localhost:8080/api/review/imdbId/${imdbId}`);
+  }
+
+  verifyReview(imdbId: string): Observable<boolean> {
+    return this._http.get<boolean>(`http://localhost:8080/api/review/verify/${imdbId}`);
+  }
+
 }
