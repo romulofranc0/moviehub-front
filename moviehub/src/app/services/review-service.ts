@@ -13,15 +13,20 @@ export class ReviewService {
 
   saveReview(reviewRequest: ReviewRequest): Observable<any> {
 
-    return this._http.post('http://localhost:8080/api/review', reviewRequest)
+    return this._http.post('http://localhost:8080/api/reviews', reviewRequest)
   }
 
   getReviewByImdbId(imdbId:string):Observable<any> {
-    return this._http.get(`http://localhost:8080/api/review/imdbId/${imdbId}`);
+    return this._http.get(`http://localhost:8080/api/reviews/imdb/${imdbId}`);
   }
 
   verifyReview(imdbId: string): Observable<boolean> {
-    return this._http.get<boolean>(`http://localhost:8080/api/review/verify/${imdbId}`);
+    return this._http.get<boolean>(`http://localhost:8080/api/reviews/verify/${imdbId}`);
   }
+
+  deleteReview(reviewId:number):Observable<any> {
+    return this._http.delete(`http://localhost:8080/api/reviews/${reviewId}`);
+  }
+
 
 }
