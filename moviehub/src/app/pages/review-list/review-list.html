@@ -1,0 +1,5 @@
+@for (review of reviews; track review.imdbId){
+  <app-movie-review-details [review]="review" (removeReviewFromList)="onRemoveReview($event)"></app-movie-review-details>
+} @empty {
+  <p>No reviews yet</p>
+}

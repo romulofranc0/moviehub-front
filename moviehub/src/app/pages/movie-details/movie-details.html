@@ -1,6 +1,13 @@
-@if (!reviewEnabled){
-    <app-movie-details-card (reviewEnabled) = "isReviewEnabled($event)"  [movie] = movie></app-movie-details-card>
-} @else {
-    <app-movie-review (reviewEnabled) = "isReviewEnabled($event)" [movie] = movie></app-movie-review>
+@if (!createReviewEnabled && showMovieDetails){
+    <app-movie-details-card (createReviewEnabled) = "isReviewEnabled($event)"
+                            (showMovieDetails) = "isMovieDetailsEnabled($event)"
+                            (reviewExists) = "isReviewExists($event)"
+                            [movie] = movie></app-movie-details-card>
+} @else if (createReviewEnabled && !showMovieDetails){
+    <app-movie-review-create (createReviewEnabled) = "isReviewEnabled($event)"
+                             (showMovieDetails) = "isMovieDetailsEnabled($event)"
+                             [movie] = movie></app-movie-review-create>
+} @else if (!createReviewEnabled && !showMovieDetails){
+  <app-movie-review-details (showMovieDetails) = "isMovieDetailsEnabled($event)"
+                            (createReviewEnabled) = "isReviewEnabled($event)"></app-movie-review-details>
 }
-

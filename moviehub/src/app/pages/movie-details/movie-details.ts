@@ -4,14 +4,16 @@ import {ActivatedRoute} from '@angular/router';
 import {MovieService} from '../../services/movie-service';
 import {MovieDetailsResponse} from '../../models/movie-details-response';
 import {switchMap} from 'rxjs';
-import {MovieReview} from "../../components/movie-review/movie-review";
+import {MovieReview} from "../../components/movie-review-create/movie-review";
+import {MovieReviewDetails} from '../../components/movie-review-details/movie-review-details';
 
 @Component({
   selector: 'app-movie-details',
-    imports: [
-        MovieDetailsCard,
-        MovieReview
-    ],
+  imports: [
+    MovieDetailsCard,
+    MovieReview,
+    MovieReviewDetails
+  ],
   templateUrl: './movie-details.html',
   styleUrl: './movie-details.scss'
 })
@@ -21,7 +23,9 @@ export class MovieDetails implements OnInit {
   movie!: MovieDetailsResponse;
 
   imdbId!: string;
-  reviewEnabled: boolean = false;
+  createReviewEnabled: boolean = false;
+  showMovieDetails: boolean = true;
+  reviewExists: boolean = false;
 
   ngOnInit() {
     this._route.params.pipe(
@@ -37,8 +41,15 @@ export class MovieDetails implements OnInit {
     });
   }
 
-
   isReviewEnabled($event: boolean) {
-    this.reviewEnabled = $event;
+    this.createReviewEnabled = $event;
+  }
+
+  isMovieDetailsEnabled($event: boolean) {
+    this.showMovieDetails = $event;
+  }
+
+  isReviewExists($event: boolean) {
+    this.reviewExists = $event;
   }
 }
