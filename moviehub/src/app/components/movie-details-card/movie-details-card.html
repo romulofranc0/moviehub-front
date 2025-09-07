@@ -16,12 +16,11 @@
           <p class="plot">{{ movie.plot }}</p>
         </div>
 
-        <div class="buttons flex justify-content-between">
-          <div class="justify-content-between">
+        <div class="flex justify-between items-center w-full mt-3">
             <p-button class="mr-3" (click)="verifyExistingReview()" icon="pi pi-pencil" label="Review"></p-button>
+            <div class="flex-grow-1"></div>
             <p-button icon="pi pi-plus" outlined="true" label="Add to List"></p-button>
           </div>
-        </div>
 
       </div>
     </div>
